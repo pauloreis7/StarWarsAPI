@@ -12,7 +12,7 @@ class SwapiApiConsumer:
 
     def __init__(self) -> None:
         self. get_starships_response = namedtuple(
-            'get_starshipss', 'status_code request response')
+            'get_starships', 'status_code request response')
 
     def get_starships(self, page: int) -> Tuple[int, Type[Request], Dict]:
         '''
