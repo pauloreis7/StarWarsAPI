@@ -3,11 +3,11 @@ from collections import namedtuple
 import requests
 from requests import Request
 
+from src.data.interfaces.startships_list_colector import SwapiApiConsumerInterface
 from src.errors import HttpRequestError
 
 
-class SwapiApiConsumer:
-
+class SwapiApiConsumer(SwapiApiConsumerInterface):
     '''Class to consume swapi api'''
 
     def __init__(self) -> None:
