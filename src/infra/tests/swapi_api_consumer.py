@@ -36,7 +36,7 @@ class SwapiApiConsumerSpy:
 
         self.get_starships_attributes['page'] = page
 
-        return self. get_starships_response(
+        return self.get_starships_response(
             status_code=200,
             request=None,
             response={"results": [mock_starships(), mock_starships()]}
