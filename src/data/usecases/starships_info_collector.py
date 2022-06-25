@@ -2,6 +2,7 @@ from typing import Type, List, Dict
 
 from src.data.interfaces.swapi_api_consumer import SwapiApiConsumerInterface
 from src.domain.usecases.starships_info_collector import StarshipsInfoCollectorInterface
+from src.errors import HttpUnprocessableEntityError
 
 
 class StarshipsInfoCollector(StarshipsInfoCollectorInterface):
@@ -22,7 +23,7 @@ class StarshipsInfoCollector(StarshipsInfoCollectorInterface):
         mglt = api_response.response['MGLT']
 
         if mglt == 'unknown':
-            raise Exception('Unprocessible Information for selected starship')
+            raise HttpUnprocessableEntityError('Unprocessible Information for selected starship')
 
         distance_traveled = self.__calculate_distance_traveled_to_spaceship(
             mglt, time

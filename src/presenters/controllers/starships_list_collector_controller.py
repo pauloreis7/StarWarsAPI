@@ -1,8 +1,10 @@
 from typing import Dict
+
 from src.domain.usecases.starships_list_collector import StarshipsListCollectorInterface
+from src.presenters.interface.controllers import ControllersInterface
 
 
-class StarshipsListCollectorController:
+class StarshipsListCollectorController(ControllersInterface):
     ''' Controller to List Starships '''
 
     def __init__(self, starships_list_collector: StarshipsListCollectorInterface) -> None:
