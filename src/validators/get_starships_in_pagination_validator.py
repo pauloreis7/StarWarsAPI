@@ -1,7 +1,9 @@
 from cerberus import Validator
 
+from src.errors import HttpUnprocessableEntityError
 
-def starships_in_pagination_validator(request: any):
+
+def get_starships_in_pagination_validator(request: any):
     '''starships pagination validator'''
 
     query_param_validator = Validator({
@@ -11,4 +13,4 @@ def starships_in_pagination_validator(request: any):
     response = query_param_validator.validate(request.query_params)
 
     if response is False:
-        raise Exception(query_param_validator.errors)
+        raise HttpUnprocessableEntityError(query_param_validator.errors)

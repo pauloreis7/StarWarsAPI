@@ -3,7 +3,12 @@ from fastapi import Request as FastApiResquest
 
 
 async def request_adapter(request: FastApiResquest, callback: Callable):
-    '''FastApi Adapter'''
+    '''
+        Adapter to httpRequest
+        @param - request: Http request Object with all properties
+                 callback: Calback to process http request
+        @return - Http Response to Request
+    '''
 
     request_body = None
 
@@ -14,12 +19,10 @@ async def request_adapter(request: FastApiResquest, callback: Callable):
 
     http_request = {
         'query_params': request.query_params,
+        'path_params': request.scope['path_params'],
         'body': request_body
     }
 
-    try:
-        http_response = callback(http_request)
+    http_response = callback(http_request)
 
-        return http_response
-    except:
-        print('An erro has occurred')
+    return http_response

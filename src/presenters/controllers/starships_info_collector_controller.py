@@ -13,8 +13,8 @@ class StarshipsInfoCollectorController(ControllersInterface):
     def handle(self, http_request: Dict):
         ''' Handle to info colector controller '''
 
-        starship_id = http_request['body']['starship_id']
-        time = http_request['body']['time']
+        starship_id = http_request['path_params']['starship_id']
+        time = http_request['query_params']['time']
 
         starship_info = self.__use_case.find_starship(starship_id, time)
 
