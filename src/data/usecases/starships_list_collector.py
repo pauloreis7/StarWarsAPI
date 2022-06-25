@@ -1,11 +1,11 @@
 from typing import Dict, List, Type
 
-from src.domain.usecases import StarshipsListColectorInterface
-from src.data.interfaces.startships_list_colector import SwapiApiConsumerInterface
+from src.domain.usecases import StarshipsListCollectorInterface
+from src.data.interfaces.swapi_api_consumer import SwapiApiConsumerInterface
 
 
-class StarshipsListColector(StarshipsListColectorInterface):
-    '''StarshipsListColector usecase'''
+class StarshipsListCollector(StarshipsListCollectorInterface):
+    '''StarshipsListCollector usecase'''
 
     def __init__(self, api_consumer: Type[SwapiApiConsumerInterface]) -> None:
         self.__api_consumer = api_consumer
@@ -30,6 +30,7 @@ class StarshipsListColector(StarshipsListColectorInterface):
             :params - results: List with spaceships informations
             :returns - List with spaceships informations formated
         '''
+
         starships_formated_list = []
 
         for starship in results:

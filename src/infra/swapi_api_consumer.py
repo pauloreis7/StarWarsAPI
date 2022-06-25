@@ -3,7 +3,7 @@ from collections import namedtuple
 import requests
 from requests import Request
 
-from src.data.interfaces.startships_list_colector import SwapiApiConsumerInterface
+from src.data.interfaces.swapi_api_consumer import SwapiApiConsumerInterface
 from src.errors import HttpRequestError
 
 
@@ -20,7 +20,7 @@ class SwapiApiConsumer(SwapiApiConsumerInterface):
 
     def get_starships(self, page: int) -> Tuple[int, Type[Request], Dict]:
         '''
-            request startship in pagination
+            request starship in pagination
             :param - page: navigation page int
             :return - Tuple with status_code, request and response
         '''
@@ -48,8 +48,8 @@ class SwapiApiConsumer(SwapiApiConsumerInterface):
 
     def get_starship_info(self, starship_id: int) -> Tuple[int, Type[Request], Dict]:
         '''
-            request startship infos
-            :param - starship_id: startship id to request infos
+            request starship infos
+            :param - starship_id: starship id to request infos
             :return - Tuple with status_code, request and response
         '''
 

@@ -1,15 +1,15 @@
 from src.infra.tests.swapi_api_consumer import SwapiApiConsumerSpy
-from .startships_list_colector import StarshipsListColector
+from .starships_list_collector import StarshipsListCollector
 
 
 def test_list():
     '''testing list method'''
 
     api_consumer = SwapiApiConsumerSpy()
-    star_ship_list_colector = StarshipsListColector(api_consumer)
+    star_ship_list_collector = StarshipsListCollector(api_consumer)
 
     page = 1
-    response = star_ship_list_colector.list(page)
+    response = star_ship_list_collector.list(page)
 
     assert api_consumer.get_starships_attributes == {"page": page}
     assert isinstance(response, list)

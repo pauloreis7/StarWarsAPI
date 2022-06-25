@@ -11,3 +11,9 @@ class SwapiApiConsumerInterface(ABC):
         '''Must implement'''
 
         raise Exception('Must implement get_staships method')
+
+    @abstractmethod
+    def get_starship_info(self, starship_id: int) -> Tuple[int, Type[Request], Dict]:
+        '''Must implement'''
+
+        raise Exception('Must implement get_starship_info method')
